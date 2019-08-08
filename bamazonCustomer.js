@@ -17,23 +17,26 @@ var connection = mysql.createConnection({
 
 connection.connect(function(err) {
   if (err) throw err;
-  console.log("Here the list of products we sell");
+  console.log("Here are our list of products");
+
   now_what();
 });
 function now_what () {
+  
+  connection.query("SELECT id, product_nm, price FROM products", async function (err,res) {
+    //to get rid of rowdatapacket
+  var string =JSON.stringify(res);
+  var jsonarray =  JSON.parse(string);
+    if (err) throw err;
+  console.log(jsonarray);
 
-connection.query("SELECT id, product_nm, price FROM products", function (err,res) {
-if (err) throw err;
-console.log(res);
- prompts();
-});
+  await inquirer.prompt({
+    type: "list",
+    name: "products",
+    message: "select a product",
+    choices: ["14","15", "24"]
+    })})
+  connection.end();}
 
-function prompts(questions) {
-inquirer.prompt({
-type: "input",
- message: "Enter the id # for the product you wish to purchase",
-name: "choice",
-message: "How many of " + questions.choice + "would you like to buy?"});   
-}
-connection.end();
-}
+
+
