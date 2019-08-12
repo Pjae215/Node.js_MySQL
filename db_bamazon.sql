@@ -1,13 +1,12 @@
-
 CREATE DATABASE bamazon;
 
 USE bamazon;
 
 CREATE TABLE products (
-  id INT NOT NULL AUTO_INCREMENT,
+  id INT AUTO_INCREMENT NOT NULL,
   product_nm VARCHAR(100) NOT NULL,
   department_nm VARCHAR(100) NOT NULL,
-  price FLOAT (4,2) NOT NULL,
+  price DECIMAL (6,2) NOT NULL,
   stock_quantity INT NOT NULL,
   PRIMARY KEY (id)
 );
