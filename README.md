@@ -25,6 +25,8 @@ If there isn't enough inventory on hand for the user's selection, they will aler
 
 
 ### Resources
+* Node.js
+* MySQL
 * JavaScript
 * MySQLWorkbench
 * Terminal/Gitbash
